@@ -20,3 +20,28 @@ Print a message:
 September 2016.".
 """
 
+text_senders = [row[0] for row in texts]
+text_receivers = [row[1] for row in texts]
+call_diallers = [row[0] for row in calls]
+call_recipients = [row[1] for row in calls]
+numbers = text_receivers + text_senders + call_diallers + call_recipients
+unique_numbers = set(numbers)
+summary = {}
+maxindex = ''
+maxvalue = 0
+for number in unique_numbers:
+    summary[number]=0
+    for call in calls:
+        if call[0]==number or call[1]==number:
+            summary[number] += call[3]
+    if summary[number] > maxvalue:
+        maxvalue = summary[number]
+        maxindex = number
+
+print(f'''
+{maxindex} spent the longest time, {maxvalue} seconds, on the phone during September 2016. 
+''')
+
+
+
+
