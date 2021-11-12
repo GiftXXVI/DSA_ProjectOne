@@ -44,3 +44,19 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+call_recipients = [row[1] if '(080)' in row[0] else None for row in calls]
+prefixes = []
+for number in call_recipients:
+  if '(' in number:
+    prefix = number.split(')')[0][1:]
+    if prefix not in prefixes:
+      prefixes.append(prefix)
+  else:
+    if ' ' in number:
+      prefix = number[0:3]
+    else:
+      prefix = '140'
+    if(prefix not in prefixes):
+      prefixes.append(prefix)
+prefixes = list(set(prefixes))
