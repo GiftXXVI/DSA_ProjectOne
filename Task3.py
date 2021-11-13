@@ -45,18 +45,19 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 
-call_recipients = [row[1] if '(080)' in row[0] else None for row in calls]
-prefixes = []
-for number in call_recipients:
-  if '(' in number:
-    prefix = number.split(')')[0][1:]
-    if prefix not in prefixes:
-      prefixes.append(prefix)
-  else:
-    if ' ' in number:
-      prefix = number[0:3]
+recipient_codes = []
+
+for row in calls:
+  if row[0][:5] == '(080)':
+    if row[1][0]!='(':
+      part = row[1][:4]
+      if part not in recipient_codes:
+        recipient_codes.append(row[1][:4])
     else:
-      prefix = '140'
-    if(prefix not in prefixes):
-      prefixes.append(prefix)
-prefixes = list(set(prefixes))
+      part0 = row[1].split(')')[0]
+      if part0[1:] not in recipient_codes:
+        recipient_codes.append(part0[1:])
+sorted_codes = sorted(recipient_codes)
+print("The numbers called by people in Bangalore have codes:")
+for code in sorted_codes:
+  print(code)
