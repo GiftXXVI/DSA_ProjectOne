@@ -34,7 +34,7 @@ for number in unique_numbers:
     summary[number]=0
     for call in calls:
         if call[0]==number or call[1]==number:
-            summary[number] += call[3]
+            summary[number] += int(call[3])
     if summary[number] > maxvalue:
         maxvalue = summary[number]
         maxindex = number
