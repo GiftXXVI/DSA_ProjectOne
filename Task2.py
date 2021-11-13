@@ -20,12 +20,13 @@ Print a message:
 September 2016.".
 """
 
-text_senders = [row[0] for row in texts]
-text_receivers = [row[1] for row in texts]
 call_diallers = [row[0] for row in calls]
 call_recipients = [row[1] for row in calls]
-numbers = text_receivers + text_senders + call_diallers + call_recipients
-unique_numbers = set(numbers)
+numbers = call_diallers + call_recipients
+unique_numbers = []
+for number in numbers:
+    if number not in unique_numbers:
+        unique_numbers.append(number)
 summary = {}
 maxindex = ''
 maxvalue = 0
