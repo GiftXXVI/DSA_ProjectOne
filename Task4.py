@@ -25,3 +25,26 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
+call_diallers = [row[0] for row in calls]
+call_recipients = [row[1] for row in calls]
+text_senders = [row[0] for row in texts]
+text_recipients = [row[1] for row in texts]
+numbers = call_recipients + text_senders + text_recipients
+tele_diallers = []
+unique_numbers = []
+for number in numbers:
+    if number not in unique_numbers:
+        unique_numbers.append(number)
+
+for dialler in call_diallers:
+    if dialler not in unique_numbers:
+        if dialler not in tele_diallers:
+            tele_diallers.append(dialler)
+
+sorted_diallers = sorted(tele_diallers)
+
+print("These numbers could be telemarketers: ")
+for dialler in sorted_diallers:
+    print(dialler)
+
+
