@@ -24,5 +24,9 @@ text_receivers = [row[1] for row in texts]
 call_diallers = [row[0] for row in calls]
 call_recipients = [row[1] for row in calls]
 numbers = text_receivers + text_senders + call_diallers + call_recipients
-print(f'There are {len(set(numbers))} different numbers in the records.')
+unique_numbers = []
+for number in numbers:
+    if number not in unique_numbers:
+        unique_numbers.append(number)
+print(f'There are {len(unique_numbers)} different numbers in the records.')
 
