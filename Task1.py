@@ -29,4 +29,3 @@ for number in numbers:
     if number not in unique_numbers:
         unique_numbers.append(number)
 print(f'There are {len(unique_numbers)} different numbers in the records.')
-

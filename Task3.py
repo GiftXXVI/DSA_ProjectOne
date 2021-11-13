@@ -46,18 +46,28 @@ The percentage should have 2 decimal digits
 """
 
 recipient_codes = []
-
+count = 0
+count_local = 0
 for row in calls:
-  if row[0][:5] == '(080)':
-    if row[1][0]!='(':
-      part = row[1][:4]
-      if part not in recipient_codes:
-        recipient_codes.append(row[1][:4])
-    else:
-      part0 = row[1].split(')')[0]
-      if part0[1:] not in recipient_codes:
-        recipient_codes.append(part0[1:])
+    count += 1
+    if row[0][:5] == '(080)':
+        if row[1][:5] == '(080)':
+            count_local += 1
+        if row[1][0] != '(':
+            part = row[1][:4]
+            if part not in recipient_codes:
+                recipient_codes.append(row[1][:4])
+        else:
+            part0 = row[1].split(')')[0]
+            if part0[1:] not in recipient_codes:
+                recipient_codes.append(part0[1:])
+
 sorted_codes = sorted(recipient_codes)
+
 print("The numbers called by people in Bangalore have codes:")
 for code in sorted_codes:
-  print(code)
+    print(code)
+
+print(f'''
+{round(count_local * 100/count, 2)} percent of calls from fixed lines in Bangalore are calls 
+to other fixed lines in Bangalore.''')

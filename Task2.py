@@ -31,9 +31,9 @@ summary = {}
 maxindex = ''
 maxvalue = 0
 for number in unique_numbers:
-    summary[number]=0
+    summary[number] = 0
     for call in calls:
-        if call[0]==number or call[1]==number:
+        if call[0] == number or call[1] == number:
             summary[number] += int(call[3])
     if summary[number] > maxvalue:
         maxvalue = summary[number]
@@ -42,7 +42,3 @@ for number in unique_numbers:
 print(f'''
 {maxindex} spent the longest time, {maxvalue} seconds, on the phone during September 2016. 
 ''')
-
-
-
-
