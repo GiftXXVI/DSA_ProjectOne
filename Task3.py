@@ -56,9 +56,13 @@ for row in calls:
         if row[1][0] != '(':
             part = row[1][:4]
             if part not in recipient_codes:
-                recipient_codes.append(row[1][:4])
+                recipient_codes.append(part)
         else:
-            part0 = row[1].split(')')[0]
+            item_index = 0
+            for index, item in enumerate(row[1]):
+                if item == ')':
+                    item_index = index
+            part0 = row[1][:item_index+1]
             if part0[1:] not in recipient_codes:
                 recipient_codes.append(part0[1:])
 
