@@ -31,7 +31,6 @@ for call in calls:
     call_diallers.append(call[0])
     call_recipients.append(call[1])
 
-
 text_senders = []
 text_recipients = []
 for text in texts:
@@ -55,5 +54,3 @@ sorted_diallers = sorted(tele_diallers)
 print("These numbers could be telemarketers: ")
 for dialler in sorted_diallers:
     print(dialler)
-
-

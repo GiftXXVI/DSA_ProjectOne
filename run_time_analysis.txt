@@ -42,3 +42,34 @@ Thus taken together, the entire third subtask is O(n*n)=O(n^2)
 Therefore, the time complexity of Taks2 is O(n^2)
 
 Task3:
+This task was broken down into the following subtasks:
+- Identify area codes of numbers called by diallers from Bangalore and count how many of the recipients
+were also from Bangalore.
+- sort the identifed codes
+- calculate and display the percentage of recipients called by Bangalore diallers who are also
+from Bangalore.
+
+The first subtask involved a single loop where a Bangalore dialler is identified,
+the location of the recipient is noted (if from Bangalore) then the code is added to the list of unique codes.
+
+This operation is executed once for each input, therefore the time complpexity is O(n).
+Sorting a list with the sort function is O(nlogn)
+Calculating the percentage from 2 already aggregated counts (all recipients and Bangalore recipients) has a time
+complexity of O(1).
+
+Therefore, the time complexity of this task is nlogn
+
+Task4:
+This task was broken down into the following subtasks:
+- identify diallers and recipients
+- identify senders and recipients of text messages
+- join the following lists into one: call recipients, text senders, text recipients
+- identify unique numbers from the joined list
+- for each dialler,check if it is in the joined list.
+if not; add it to the list of telemarketers if it is not already on the list
+- sort the list of diallers
+- print the sorted list of diallers
+
+Each of these operations has a time complexity of O(n). Therefore, the task has a time complexity of O(n).
+
+
