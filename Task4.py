@@ -25,10 +25,19 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
-call_diallers = [row[0] for row in calls]
-call_recipients = [row[1] for row in calls]
-text_senders = [row[0] for row in texts]
-text_recipients = [row[1] for row in texts]
+call_diallers = []
+call_recipients = []
+for call in calls:
+    call_diallers.append(call[0])
+    call_recipients.append(call[1])
+
+
+text_senders = []
+text_recipients = []
+for text in texts:
+    text_senders.append(text[0])
+    text_recipients.append(text[1])
+
 numbers = call_recipients + text_senders + text_recipients
 tele_diallers = []
 unique_numbers = []

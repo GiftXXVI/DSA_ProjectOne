@@ -19,10 +19,18 @@ Print a message:
 "There are <count> different telephone numbers in the records."
 """
 
-text_senders = [row[0] for row in texts]
-text_receivers = [row[1] for row in texts]
-call_diallers = [row[0] for row in calls]
-call_recipients = [row[1] for row in calls]
+text_senders = []
+text_receivers = []
+for text in texts:
+    text_senders.append(text[0])
+    text_receivers.append(text[1])
+
+call_diallers = []
+call_recipients = []
+for call in calls:
+    call_diallers.append(call[0])
+    call_recipients.append(call[1])
+
 numbers = text_receivers + text_senders + call_diallers + call_recipients
 unique_numbers = []
 for number in numbers:

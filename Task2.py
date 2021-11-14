@@ -20,8 +20,12 @@ Print a message:
 September 2016.".
 """
 
-call_diallers = [row[0] for row in calls]
-call_recipients = [row[1] for row in calls]
+call_diallers = []
+call_recipients = []
+for call in calls:
+    call_diallers.append(call[0])
+    call_recipients.append(call[1])
+
 numbers = call_diallers + call_recipients
 unique_numbers = []
 for number in numbers:
