@@ -1,0 +1,9 @@
+Task0: 
+Involves retrieval of a single index by specifying an index number. 
+Since this index number maps to a specific memory location, the operation is O(1)
+because it only accesses the specific location by its address.
+
+
+Task1:
+
+ 
