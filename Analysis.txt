@@ -15,15 +15,20 @@ Task1 has been broken down as follows:
 The time complexity of the following sub-tasks is O(n) (they involve looping through a list of n possible inputs): 
 - retrieving call diallers and recipients.
 - retrieving of text senders and recipients.
-- creation of a list of unique numbers
+
+The following task involves looping through a list phone numbers and checking if the number is
+among a list of unique numbers, in order to add it if this is not the case.
+- creation of a list of unique numbers. As this checks a list for a number (O(n)) inside a
+loop going through another list of numbers (also O(n)), this subtask has a time complexity of 
+O(n^2).
 
 The operation of concatenating the four lists is O(n). It involves copying all input lists, and their n elements, 
 to a new location where they are joined together to create a new list.
 
 Checking the length using the built-in len() function is O(1). (Since python iterable objects keep track of their own length.)
 
-The above analysis can be summarized as O(4n + 1).
-Since the largest variable term in the expression is n, the time complexity of the solution for Task1 is O(n). 
+The above analysis can be summarized as O(n^2 + 3n + 1).
+Since the largest variable term in the expression is n^2, the time complexity of the solution for Task1 is O(n^2). 
 
 Task2:
 Task2 has been broken down into the following subtasks:
@@ -34,11 +39,18 @@ for each unique number, loop through the list of calls and sum up the total seco
 for calls where the number is either a dialler or a recipient.
 
 The first 2 subtasks above have a time complexity of O(n). They involve looping through a list of n possible inputs. 
-The third subtask has one subtask with a time complexity of O(n) nested inside another subtask which has a time complexity of O(m). 
-Thus taken together, the entire third subtask is O(n*m) or approximately O(n^2). 
 
-Taken together, this gives the expression O(2n + n^2)
-Therefore, since the largest variable term is n^2, the time complexity of Task2 is O(n^2)
+The third subtask involves the following nested loops:
+- loop through a set of numbers O(n)
+- check if the current number is in the list of unique numbers O(n)
+- if it is not in the list, add it to the list :
+    - loop through the calls where it is a dialler or a recipient and aggregate the total amount of time it spent on calls O(n)
+    - if its total is higher than the current maximum duration, set it as the new maximum duration O(1)
+
+Thus taken together, the entire third subtask is O(n*m) or approximately O(n^3 + n + 1). 
+
+Taken together, this gives the expression O(n^3 + 3n + 1)
+Therefore, since the largest variable term is n^3, the time complexity of Task2 is O(n^3)
 
 Task3:
 Task3 has been broken down into the following subtasks:
