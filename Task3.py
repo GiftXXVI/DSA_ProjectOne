@@ -49,8 +49,8 @@ recipient_codes = []
 count = 0
 count_local = 0
 for row in calls:
-    count += 1
     if row[0][:5] == '(080)':
+        count += 1
         if row[1][:5] == '(080)':
             count_local += 1
         if row[1][0] != '(':
