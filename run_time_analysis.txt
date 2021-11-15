@@ -1,75 +1,77 @@
 Task0: 
-This taks involves the retrieval of a single list index by specifying an index number. 
-Since this index number maps to a specific memory location, the operation is O(1)
-because it only accesses the specific memory location by its address.
-
+Task0 is atomic. It involves retrieving a single list index by specifying its index number. 
+The time complexity of such an operation is O(1) because it only accesses a specific memory location by its address.
 Thus, the time complexity of the solution for Task0 is O(1)
 
-
 Task1:
-This task was broken down as follows:
-- retrieve senders and receivers of text messages
-- retrieve diallers and recipients of phone calls
-- join the lists above together
-- identify unique numbers from the entire list and add the unique numbers to a new list
-- print the size of the list of unique numbers
+Task1 has been broken down as follows:
+- retrieve senders and receivers of text messages.
+- retrieve diallers and recipients of phone calls.
+- join the 2 lists above together.
+- identify the unique numbers from the joined list and add the unique numbers to a new list of unique numbers.
+- print the size of the list of unique numbers.
 
-The following sub-tasks are all O(n): 
-- retrieval of call diallers and recipients
-- retrieval of text senders and recipients
+The time complexity of the following sub-tasks is O(n) (they involve looping through a list of n possible inputs): 
+- retrieving call diallers and recipients.
+- retrieving of text senders and recipients.
 - creation of a list of unique numbers
-All of the above tasks require looping through a list of n possible inputs. 
-(for example; to get all phone numbers or to check all phone numbers against a list of unique 
-numbers and add the phone numbers that are not on the list).
 
-Concatenation of four lists is O(n).
-Checking the length using the built-in len() function is O(1).
+The operation of concatenating the four lists is O(n). It involves copying all input lists, and their n elements, 
+to a new location where they are joined together to create a new list.
 
-Since the largest term is O(n), the time complexity of the solution for Task1 is O(n). 
+Checking the length using the built-in len() function is O(1). (Since python iterable objects keep track of their own length.)
+
+The above analysis can be summarized as O(4n + 1).
+Since the largest variable term in the expression is n, the time complexity of the solution for Task1 is O(n). 
 
 Task2:
-This task was broken into the following subtasks:
+Task2 has been broken down into the following subtasks:
 - identify the numbers of call diallers and call recipients
 - join the two lists together
 - loop through the combined list and identify unique numbers; 
-for each unique number, loop through the list of calls ans sum up the total seconds
+for each unique number, loop through the list of calls and sum up the total seconds
 for calls where the number is either a dialler or a recipient.
 
-The first 2 subtasks above have a time complexity of O(n). 
-The third subtask has one component of O(n) nested inside another subtask (also O(n)). 
-Thus taken together, the entire third subtask is O(n*n)=O(n^2) 
+The first 2 subtasks above have a time complexity of O(n). They involve looping through a list of n possible inputs. 
+The third subtask has one component with a time complexity of O(n) nested inside another subtask which has a time complexity of O(m). 
+Thus taken together, the entire third subtask is O(n*m) or approximately O(n^2). 
 
-Therefore, the time complexity of Taks2 is O(n^2)
+Taken together, this gives the expression O(2n + n^2)
+Therefore, since the largest variable term is n^2, the time complexity of Task2 is O(n^2)
 
 Task3:
-This task was broken down into the following subtasks:
+Task3 has been broken down into the following subtasks:
 - Identify area codes of numbers called by diallers from Bangalore and count how many of the recipients
 were also from Bangalore.
 - sort the identifed codes
 - calculate and display the percentage of recipients called by Bangalore diallers who are also
 from Bangalore.
 
-The first subtask involved a single loop where a Bangalore dialler is identified,
-the location of the recipient is noted (if from Bangalore) then the code is added to the list of unique codes.
+The solution was to define a single loop where: 
+- a total count is incremented, 
+- a Bangalore dialler is identified by the area code,
+- if the recipient is from Bangalore (also determined by area code), the count of Bangalore recipients is incremented  
+- regardless of whether the recipient is from Bangalore or not, the area code is extracted
 
-This operation is executed once for each input, therefore the time complpexity is O(n).
-Sorting a list with the sort function is O(nlogn)
+This operation is executed once for each input, therefore its time complexity is O(n).
+It is followed by sorting a list with the sort function whose time complexity is O(nlogn)
 Calculating the percentage from 2 already aggregated counts (all recipients and Bangalore recipients) has a time
 complexity of O(1).
 
-Therefore, the time complexity of this task is nlogn
+Therefore, the time complexity of Task3 is O(nlogn)
 
 Task4:
-This task was broken down into the following subtasks:
-- identify diallers and recipients
-- identify senders and recipients of text messages
-- join the following lists into one: call recipients, text senders, text recipients
-- identify unique numbers from the joined list
-- for each dialler,check if it is in the joined list.
-if not; add it to the list of telemarketers if it is not already on the list
-- sort the list of diallers
-- print the sorted list of diallers
+Task4 has been broken down into the following subtasks:
+- identify diallers and recipients of calls.
+- identify senders and recipients of text messages.
+- join the following lists into one: call recipients, text senders, text recipients.
+- identify unique numbers from the joined list.
+- for each dialler,check if the number is in the joined list.
+    - if not; add it to the list of telemarketers if it is not already on the list of telemarketers.
+- sort the list of telemarketers.
+- print the sorted list of telemarketers.
 
-Each of these operations has a time complexity of O(n). Therefore, the task has a time complexity of O(n).
+The operation of looping through a list to check if it is among the list of telemarketers has a time complexity of O(n^2).
+This is the largest variable term in the expression, thus Task4 has a time complexity of O(n^2).
 
 
