@@ -1,7 +1,8 @@
 Task0: 
-Task0 is atomic. It involves retrieving a single list index by specifying its index number. 
+Task0 is atomic. 
+It involves retrieving a single list index by specifying its index number. 
 The time complexity of such an operation is O(1) because it only accesses a specific memory location by its address.
-Thus, the time complexity of the solution for Task0 is O(1)
+Thus, the time complexity of the solution for Task0 is O(1).
 
 Task1:
 Task1 has been broken down as follows:
@@ -33,7 +34,7 @@ for each unique number, loop through the list of calls and sum up the total seco
 for calls where the number is either a dialler or a recipient.
 
 The first 2 subtasks above have a time complexity of O(n). They involve looping through a list of n possible inputs. 
-The third subtask has one component with a time complexity of O(n) nested inside another subtask which has a time complexity of O(m). 
+The third subtask has one subtask with a time complexity of O(n) nested inside another subtask which has a time complexity of O(m). 
 Thus taken together, the entire third subtask is O(n*m) or approximately O(n^2). 
 
 Taken together, this gives the expression O(2n + n^2)
@@ -49,16 +50,22 @@ from Bangalore.
 
 The solution was to define a single loop where: 
 - a total count is incremented, 
-- a Bangalore dialler is identified by the area code,
-- if the recipient is from Bangalore (also determined by area code), the count of Bangalore recipients is incremented  
+- a Bangalore dialler is identified by their area code,
+- if the call recipient is from Bangalore (also determined by area code), the count of Bangalore recipients is incremented  
 - regardless of whether the recipient is from Bangalore or not, the area code is extracted
 
-This operation is executed once for each input, therefore its time complexity is O(n).
-It is followed by sorting a list with the sort function whose time complexity is O(nlogn)
+This loop is executed once for each input, therefore its time complexity is O(n). However, in some cases,
+the area code is determined by searching for a closing bracket and extracting the numbers between the opening and
+closing brackets. Since the codes are of variable length, this can be considered as O(n*m) 
+or approximately O(n^2) in the worst cases.
+
+It is followed by sorting a list with the sort function whose time complexity is O(nlogn).
+
 Calculating the percentage from 2 already aggregated counts (all recipients and Bangalore recipients) has a time
 complexity of O(1).
 
-Therefore, the time complexity of Task3 is O(nlogn)
+The time complexity of the subtasks of Task3 is O(nlogn + n^2 + 1).
+Since the largest variable term is n^2, the time complexity of Task3 is O(n^2).
 
 Task4:
 Task4 has been broken down into the following subtasks:
@@ -71,7 +78,18 @@ Task4 has been broken down into the following subtasks:
 - sort the list of telemarketers.
 - print the sorted list of telemarketers.
 
-The operation of looping through a list to check if it is among the list of telemarketers has a time complexity of O(n^2).
+The solution was to define 5 loops as follows:
+- loop through calls and create lists of callers and recipients O(n).
+- loop through texts and create lists of senders and recipients O(n).
+- join lists of call recipients, text senders and text recipients O(n).
+- loop through joined list, check if each element is in a list of unique numbers, 
+then add to the list if the number is not among the unique numbers. This subtask has 2 nested loops, thus the time complexity is O(n^2).
+- loop through the list of call diallers, check if the current dialler is not in the joined list (meaning they are a telemarketer).
+then check if they are among the list of telemarketers and add the number if this is not the case. Time complexity is O(n^3) for the 3 nested loops.
+- sort the list of unique telemarketers. The time complexity is O(nlogn).
+- loop through the sorted diallers to print the individual items. The time complexity of this subtask is O(n).
+
+The last loop has a worst case time complexity of O(n^3), this is the largest variable term among all the subtasks in this task  
 This is the largest variable term in the expression, thus Task4 has a time complexity of O(n^2).
 
 
