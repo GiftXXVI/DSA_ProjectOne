@@ -79,9 +79,9 @@ Task4 has been broken down into the following subtasks:
 - print the sorted list of telemarketers.
 
 The solution was to define 5 loops as follows:
-- loop through calls and create lists of callers and recipients O(n).
-- loop through texts and create lists of senders and recipients O(n).
-- join lists of call recipients, text senders and text recipients O(n).
+- loop through calls and create lists of callers and recipients - O(n).
+- loop through texts and create lists of senders and recipients - O(n).
+- join lists of call recipients, text senders and text recipients - O(n).
 - loop through joined list, check if each element is in a list of unique numbers, 
 then add to the list if the number is not among the unique numbers. This subtask has 2 nested loops, thus the time complexity is O(n^2).
 - loop through the list of call diallers, check if the current dialler is not in the joined list (meaning they are a telemarketer).
@@ -89,7 +89,7 @@ then check if they are among the list of telemarketers and add the number if thi
 - sort the list of unique telemarketers. The time complexity is O(nlogn).
 - loop through the sorted diallers to print the individual items. The time complexity of this subtask is O(n).
 
-The last loop has a worst case time complexity of O(n^3), this is the largest variable term among all the subtasks in this task  
-This is the largest variable term in the expression, thus Task4 has a time complexity of O(n^2).
+The last loop has a worst case time complexity of O(n^3), this is the largest variable term among all the subtasks in this task (Others are O(n) or O(nlogn))
+This is the largest variable term in the expression, thus Task4 has a time complexity of O(n^3).
 
 
